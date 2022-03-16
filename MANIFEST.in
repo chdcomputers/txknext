@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include txknext *.css
+recursive-include txknext *.csv
+recursive-include txknext *.html
+recursive-include txknext *.ico
+recursive-include txknext *.js
+recursive-include txknext *.json
+recursive-include txknext *.md
+recursive-include txknext *.png
+recursive-include txknext *.py
+recursive-include txknext *.svg
+recursive-include txknext *.txt
+recursive-exclude txknext *.pyc
