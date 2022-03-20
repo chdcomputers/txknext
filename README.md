@@ -1,6 +1,6 @@
 ## TXKnext
 
-TXK ERPnext Specifics
+ERPnext Specifics for Technochemica of Crete LTD
 
 #### License
 
