@@ -3,25 +3,27 @@
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2022-03-27 20:18:28.415782",
+ "default_view": "List",
  "doctype": "DocType",
  "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "title",
+  "section_doc",
+  "colbreak_docinfo01",
+  "naming_series",
+  "colbreak_docinfo02",
+  "company",
   "customer_section",
   "column_break0",
-  "title",
-  "naming_series",
   "customer",
-  "customer_name",
-  "repair_stage",
   "column_break1",
-  "company",
+  "tax_id",
+  "pickup_section",
+  "repair_stage",
   "pickup_date",
   "delivery_date",
-  "po_no",
-  "po_date",
-  "tax_id",
   "contact_info",
   "customer_address",
   "address_display",
@@ -38,19 +40,8 @@
   "section_break_31",
   "column_break_33a",
   "total_qty",
-  "base_total",
-  "base_net_total",
   "column_break_33",
-  "total",
-  "net_total",
-  "base_grand_total",
-  "base_rounding_adjustment",
-  "base_rounded_total",
   "column_break3",
-  "grand_total",
-  "rounding_adjustment",
-  "rounded_total",
-  "disable_rounded_total",
   "more_info",
   "project",
   "printing_details",
@@ -58,7 +49,8 @@
   "letter_head",
   "column_break4",
   "select_print_heading",
-  "billing_status"
+  "billing_status",
+  "amended_from"
  ],
  "fields": [
   {
@@ -66,6 +58,7 @@
    "fieldtype": "Section Break",
    "hide_days": 1,
    "hide_seconds": 1,
+   "label": "Customer Info",
    "options": "fa fa-user"
   },
   {
@@ -117,17 +110,6 @@
    "print_hide": 1,
    "reqd": 1,
    "search_index": 1
-  },
-  {
-   "bold": 1,
-   "fetch_from": "customer.customer_name",
-   "fieldname": "customer_name",
-   "fieldtype": "Data",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "in_global_search": 1,
-   "label": "Customer Name",
-   "read_only": 1
   },
   {
    "default": "Picked up",
@@ -190,29 +172,6 @@
    "in_list_view": 1,
    "label": "Delivery Date",
    "no_copy": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "po_no",
-   "fieldtype": "Data",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Customer's Purchase Order",
-   "oldfieldname": "po_no",
-   "oldfieldtype": "Data",
-   "width": "100px"
-  },
-  {
-   "allow_on_submit": 1,
-   "depends_on": "eval:doc.po_no",
-   "fieldname": "po_date",
-   "fieldtype": "Date",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Customer's Purchase Order Date",
-   "oldfieldname": "po_date",
-   "oldfieldtype": "Date",
-   "width": "100px"
   },
   {
    "fetch_from": "customer.tax_id",
@@ -362,91 +321,10 @@
    "read_only": 1
   },
   {
-   "fieldname": "base_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Total (Company Currency)",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "base_net_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Net Total (Company Currency)",
-   "oldfieldname": "net_total",
-   "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "150px"
-  },
-  {
    "fieldname": "column_break_33",
    "fieldtype": "Column Break",
    "hide_days": 1,
    "hide_seconds": 1
-  },
-  {
-   "fieldname": "total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Total",
-   "options": "currency",
-   "read_only": 1
-  },
-  {
-   "fieldname": "net_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Net Total",
-   "options": "currency",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "base_grand_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Grand Total (Company Currency)",
-   "oldfieldname": "grand_total",
-   "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "150px"
-  },
-  {
-   "depends_on": "eval:!doc.disable_rounded_total",
-   "fieldname": "base_rounding_adjustment",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Rounding Adjustment (Company Currency)",
-   "no_copy": 1,
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:!doc.disable_rounded_total",
-   "fieldname": "base_rounded_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Rounded Total (Company Currency)",
-   "oldfieldname": "rounded_total",
-   "oldfieldtype": "Currency",
-   "options": "Company:company:default_currency",
-   "print_hide": 1,
-   "read_only": 1,
-   "width": "150px"
   },
   {
    "fieldname": "column_break3",
@@ -456,52 +334,6 @@
    "oldfieldtype": "Column Break",
    "print_hide": 1,
    "width": "50%"
-  },
-  {
-   "fieldname": "grand_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "in_list_view": 1,
-   "label": "Grand Total",
-   "oldfieldname": "grand_total_export",
-   "oldfieldtype": "Currency",
-   "options": "currency",
-   "read_only": 1,
-   "width": "150px"
-  },
-  {
-   "depends_on": "eval:!doc.disable_rounded_total",
-   "fieldname": "rounding_adjustment",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Rounding Adjustment",
-   "no_copy": 1,
-   "options": "currency",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "bold": 1,
-   "depends_on": "eval:!doc.disable_rounded_total",
-   "fieldname": "rounded_total",
-   "fieldtype": "Currency",
-   "hide_days": 1,
-   "hide_seconds": 1,
-   "label": "Rounded Total",
-   "oldfieldname": "rounded_total_export",
-   "oldfieldtype": "Currency",
-   "options": "currency",
-   "read_only": 1,
-   "width": "150px"
-  },
-  {
-   "default": "0",
-   "depends_on": "grand_total",
-   "fieldname": "disable_rounded_total",
-   "fieldtype": "Check",
-   "label": "Disable Rounded Total"
   },
   {
    "collapsible": 1,
@@ -589,11 +421,39 @@
    "no_copy": 1,
    "options": "Not Billed\nFully Billed\nPartly Billed\nClosed",
    "print_hide": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Machinery Repair",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_doc",
+   "fieldtype": "Section Break",
+   "label": "Document Info"
+  },
+  {
+   "fieldname": "colbreak_docinfo01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "colbreak_docinfo02",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pickup_section",
+   "fieldtype": "Section Break",
+   "label": "Pickup Info"
   }
  ],
  "icon": "fa fa-file-text",
+ "is_submittable": 1,
  "links": [],
- "modified": "2022-03-27 20:18:28.415782",
+ "modified": "2022-12-13 11:46:50.863539",
  "modified_by": "Administrator",
  "module": "TXKnext",
  "name": "Machinery Repair",
@@ -654,13 +514,13 @@
    "write": 1
   }
  ],
- "search_fields": "pickup_date,customer,customer_name,company",
+ "search_fields": "pickup_date,customer,company",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
  "timeline_field": "customer",
- "title_field": "customer_name",
+ "title_field": "customer",
  "track_changes": 1,
  "track_seen": 1
 }
